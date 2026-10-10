@@ -6,4 +6,7 @@
 
 [node name="pick" parent="." unique_id=643603276 instance=ExtResource("1_nuqpk")]
 
+[node name="Beak" parent="pick" index="0" unique_id=1917903508]
+cast_shadow = 0
+
 [editable path="pick"]
