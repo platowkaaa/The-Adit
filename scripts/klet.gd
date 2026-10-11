@@ -1,7 +1,7 @@
 extends StaticBody3D
 
-@export var prompt: String = "Подняться"
-@export var thought_locked: String = "Заперто, нужно дернуть третий рычаг"
+@export var prompt: String = "ride up"
+@export var thought_locked: String = "The cage won't move. The last switch is still off."
 @export var required_switches: int = 3
 
 

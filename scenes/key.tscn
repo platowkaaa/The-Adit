@@ -9,7 +9,7 @@
 [node name="key" type="StaticBody3D" unique_id=492280366 groups=["interactable"]]
 script = ExtResource("1_yk2u2")
 item_id = "key"
-thought_text = " ura est kluch"
+thought_text = "A key. Heavy, and cold."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=667440338]
 shape = SubResource("BoxShape3D_fttkb")

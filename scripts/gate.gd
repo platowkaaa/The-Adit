@@ -1,10 +1,10 @@
 extends StaticBody3D
 
-@export var prompt: String = "открыть"
+@export var prompt: String = "open"
 @export var required_item: String = ""
-@export var thought_locked: String = "Заперто"
+@export var thought_locked: String = "Locked."
 @export var thought_open: String = ""
-@export var thought_no_power: String = "НУЖНО ДЕРНУТЬ РЫЧАГ"
+@export var thought_no_power: String = "Not yet. I should throw the switch first."
 @export var required_switches: int = 0
 @onready var collision: CollisionShape3D = $CollisionShape3D
 @export var door: Node3D  

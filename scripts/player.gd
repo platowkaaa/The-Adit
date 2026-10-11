@@ -257,7 +257,7 @@ func _find_target() -> Node:
 func _get_prompt(obj: Node) -> String:
 	if "prompt" in obj:
 		return str(obj.prompt)
-	return "осмотреть"
+	return "examine"
  
  
 func _update_head_bob(delta: float) -> void:

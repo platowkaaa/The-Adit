@@ -18,7 +18,7 @@ emission_energy_multiplier = 0.4
 
 [node name="Wall_lamp" type="StaticBody3D" unique_id=672236050 groups=["interactable"]]
 script = ExtResource("1_pglon")
-prompt = "Зажечь"
+prompt = "light"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1432089185]
 shape = SubResource("BoxShape3D_0asfw")

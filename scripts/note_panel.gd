@@ -38,6 +38,6 @@ func _refresh() -> void:
 	note_text.text = pages[current_page]
 
 	if current_page + 1 < pages.size():
-		hint.text = "[E] дальше    [Esc] убрать"
+		hint.text = "[E] next    [Esc] close"
 	else:
-		hint.text = "[E] убрать"
+		hint.text = "[E] close"

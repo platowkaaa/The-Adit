@@ -2,8 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://t7wytpkbbslp" path="res://assets/models/box2.glb" id="1_tj35j"]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tj35j"]
+data = PackedVector3Array(-0.4899, 0, 0.68759996, -0.4899, 0.5365, -0.68759996, -0.4899, 0.5365, 0.68759996, -0.4899, 0, 0.68759996, -0.4899, 0, -0.68759996, -0.4899, 0.5365, -0.68759996, -0.4899, 0, -0.68759996, 0.4899, 0.5365, -0.68759996, -0.4899, 0.5365, -0.68759996, -0.4899, 0, -0.68759996, 0.4899, 0, -0.68759996, 0.4899, 0.5365, -0.68759996, 0.4899, 0, -0.68759996, 0.4899, 0.5365, 0.68759996, 0.4899, 0.5365, -0.68759996, 0.4899, 0, -0.68759996, 0.4899, 0, 0.68759996, 0.4899, 0.5365, 0.68759996, 0.4899, 0, 0.68759996, -0.4899, 0.5365, 0.68759996, 0.4899, 0.5365, 0.68759996, 0.4899, 0, 0.68759996, -0.4899, 0, 0.68759996, -0.4899, 0.5365, 0.68759996, -0.4899, 0, -0.68759996, 0.4899, 0, 0.68759996, 0.4899, 0, -0.68759996, -0.4899, 0, -0.68759996, -0.4899, 0, 0.68759996, 0.4899, 0, 0.68759996, 0.4899, 0.5365, -0.68759996, -0.4899, 0.5365, 0.68759996, -0.4899, 0.5365, -0.68759996, 0.4899, 0.5365, -0.68759996, 0.4899, 0.5365, 0.68759996, -0.4899, 0.5365, 0.68759996)
+
 [node name="box2" type="Node3D" unique_id=562368369]
 
 [node name="box2" parent="." unique_id=402431894 instance=ExtResource("1_tj35j")]
+
+[node name="Box_Wood_02" parent="box2" index="0" unique_id=1167295872]
+cast_shadow = 0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="box2/Box_Wood_02" index="0" unique_id=869557779]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box2/Box_Wood_02/StaticBody3D" unique_id=1683295150]
+shape = SubResource("ConcavePolygonShape3D_tj35j")
 
 [editable path="box2"]

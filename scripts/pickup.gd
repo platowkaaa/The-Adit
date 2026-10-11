@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var prompt: String = "подобрать"
+@export var prompt: String = "pick up"
 @export var item_id: String = ""
 @export var thought_text: String = ""
 

@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var prompt: String = "зажечь"
+@export var prompt: String = "light"
 @export var thought_text: String = ""
 @onready var light: OmniLight3D = $OmniLight3D
 @onready var lantern: Node3D = $lantern

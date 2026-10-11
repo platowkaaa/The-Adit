@@ -191,7 +191,7 @@ offset_bottom = 11.880005
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
-text = "[E] дальше    [Esc] убрать"
+text = "[E] next    [Esc] close"
 
 [node name="Blackout" type="ColorRect" parent="CanvasLayer" unique_id=2001715533]
 process_mode = 3

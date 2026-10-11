@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://b8bu33tnjgiq1"]
 
 [ext_resource type="Script" uid="uid://djplonjaulirc" path="res://scripts/pickup.gd" id="1_k3e4o"]
+[ext_resource type="PackedScene" uid="uid://dq7d45m1p8ics" path="res://assets/models/handle.glb" id="2_fa2da"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_legyg"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_k3e4o"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fybsi"]
+size = Vector3(0.066674806, 0.2689453, 0.2)
 
 [node name="fuse" type="StaticBody3D" unique_id=185651309 groups=["interactable"]]
 script = ExtResource("1_k3e4o")
 item_id = "fuse"
-thought_text = " est fuse"
+thought_text = "The switch handle. Not lost. Taken off."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1865492433]
-shape = SubResource("BoxShape3D_legyg")
+transform = Transform3D(1.93, 0, 0, 0, 1.93, 0, 0, 0, 1.93, 0.066662595, 0.06329809, 0)
+shape = SubResource("BoxShape3D_fybsi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1852629562 groups=["interactable"]]
-mesh = SubResource("BoxMesh_k3e4o")
+[node name="handle" parent="." unique_id=2136179689 instance=ExtResource("2_fa2da")]
+
+[node name="switch_blade" parent="handle" index="0" unique_id=888888297]
+cast_shadow = 0
+
+[editable path="handle"]

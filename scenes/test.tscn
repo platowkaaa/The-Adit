@@ -25,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://bpfj4mje5vi0k" path="res://scenes/helmet.tscn" id="22_pn65j"]
 [ext_resource type="PackedScene" uid="uid://d24woqppsw2ox" path="res://scenes/oil.tscn" id="23_5f8cm"]
 [ext_resource type="PackedScene" uid="uid://gjuoelf5rpk" path="res://scenes/box_2.tscn" id="25_kay4s"]
+[ext_resource type="PackedScene" uid="uid://dr5vxigwomjg6" path="res://scenes/2_boxes.tscn" id="26_kay4s"]
+[ext_resource type="PackedScene" uid="uid://itw3bsae31ug" path="res://scenes/fence_broken.tscn" id="27_j7bvy"]
+[ext_resource type="PackedScene" uid="uid://dxwsfv62jk7nl" path="res://scenes/box_1.tscn" id="28_1dqgb"]
+[ext_resource type="PackedScene" uid="uid://btj8mlqlubnle" path="res://scenes/shelf.tscn" id="29_y81of"]
+[ext_resource type="PackedScene" uid="uid://combaudmhk7m7" path="res://scenes/box_3.tscn" id="30_gsk6d"]
 
 [sub_resource type="Environment" id="Environment_bl13t"]
 background_mode = 1
@@ -107,13 +112,13 @@ size = Vector3(0.25, 0.35, 0.2)
 environment = SubResource("Environment_bl13t")
 
 [node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
-transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -8.925449, 0.48817348, -12.384966)
+transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -25.20714, 0.48817348, -33.467575)
 speed = 1.5
 enemy_lamp = NodePath("../EnemyLamp")
 
 [node name="Wall_lamp" parent="." unique_id=672236050 instance=ExtResource("3_74lek")]
 transform = Transform3D(-0.16625248, 0, -0.9860833, -0.057639174, 0.9982902, 0.009717897, 0.9843973, 0.058452655, -0.16596822, 13.344032, 1.1484777, 12.801032)
-thought_text = "Керосин ещё не выгорел."
+thought_text = "Still paraffin in it."
 
 [node name="Wall_lamp2" parent="." unique_id=1312317797 instance=ExtResource("3_74lek")]
 transform = Transform3D(0.7851224, 0, 0.6193406, 0, 1, 0, -0.6193406, 0, 0.7851224, 1.1951585, 1.1712643, 4.729359)
@@ -177,14 +182,14 @@ required_switches = 1
 
 [node name="gate2" parent="." unique_id=374136928 instance=ExtResource("5_j5jx5")]
 transform = Transform3D(0.7414113, 0, -0.74351084, 0, 1.0499997, 0, 0.74351084, 0, 0.7414113, -39.165966, 0.30910504, -14.743065)
-prompt = "Открыть"
+prompt = "open"
 required_switches = 2
 
 [node name="key" parent="." unique_id=492280366 instance=ExtResource("6_lpvoh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4478083, 0.7995523, -7.0827513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8297768, 0.7791215, -13.027734)
 
 [node name="fuse" parent="." unique_id=185651309 instance=ExtResource("7_at5dv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.524933, 1.0026942, -40.03764)
+transform = Transform3D(-0.03438747, -0.120012805, 0.9921767, -0.9376887, 0.34734666, 0.009515742, -0.34577113, -0.93002546, -0.124478996, -31.452227, 0.9771012, -40.392727)
 
 [node name="note" parent="." unique_id=3738516 instance=ExtResource("8_jcd4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.209905, 0.79700315, 11.701165)
@@ -427,7 +432,57 @@ transform = Transform3D(0.712593, 0.04195289, -0.70032215, -0.04519447, 0.998882
 [node name="pick2" parent="." unique_id=112242028 instance=ExtResource("17_5jxlq")]
 transform = Transform3D(0.067452684, -0.955077, 0.2885796, 0.9962233, 0.04862257, -0.07193728, 0.05467415, 0.29234216, 0.9547495, -5.5609665, 0.863505, -2.0175178)
 
+[node name="pick4" parent="." unique_id=910818743 instance=ExtResource("17_5jxlq")]
+transform = Transform3D(0.02187857, 0.859743, 0.5102581, 0.995995, 0.025511349, -0.085690275, -0.08668898, 0.51008934, -0.8557415, -1.0762305, 0.16751033, -1.5476557)
+
+[node name="box3" parent="." unique_id=462823413 instance=ExtResource("25_kay4s")]
+transform = Transform3D(0.22972216, -0.02909813, 0.97282106, -0.009310352, 0.9994415, 0.03209293, -0.97321194, -0.016429795, 0.22932328, -18.300055, 0.345841, -11.811193)
+
+[node name="pick3" parent="." unique_id=897476022 instance=ExtResource("17_5jxlq")]
+transform = Transform3D(-0.0141507555, 0.7440459, 0.66797847, 0.99836713, 0.047493484, -0.03175206, -0.055349685, 0.66643864, -0.7435024, -18.60243, 0.88568044, -12.146059)
+
 [node name="shovel2" parent="." unique_id=1729442652 instance=ExtResource("18_xrtyr")]
 transform = Transform3D(0.9771421, -0.212587, 0, 0.212587, 0.9771421, 0, 0, 0, 1, -5.954779, 0.2503574, -0.5218407)
 
+[node name="2boxes" parent="." unique_id=1007875241 instance=ExtResource("26_kay4s")]
+transform = Transform3D(0.9932963, 0.009025305, -0.115243085, 0, 0.9969474, 0.0780763, 0.11559595, -0.07755291, 0.9902642, -3.0329943, 0.24656427, 2.693804)
+
+[node name="Crate_1_open" parent="2boxes/boxes" parent_id_path=PackedInt32Array(1007875241, 198232488) index="0" unique_id=182404463]
+transform = Transform3D(0.7488748, 0.6606885, 0.051742066, 0.051742066, 0.019547082, -0.99846905, -0.66068846, 0.7504055, -0.019547082, 0.49481058, 0.3, -0.20144272)
+
+[node name="Crate_Broken" parent="2boxes/boxes" parent_id_path=PackedInt32Array(1007875241, 198232488) index="1" unique_id=1357998276]
+transform = Transform3D(0.9939342, -0.045921408, 0.099929586, -0.0882196, 0.20962788, 0.97379273, -0.065666065, -0.9767016, 0.20430505, -0.45181417, 0.17364056, 0.060884953)
+
+[node name="Crate_lid" parent="2boxes/boxes" parent_id_path=PackedInt32Array(1007875241, 198232488) index="2" unique_id=94646255]
+transform = Transform3D(0.9401988, -0.026594795, 0.33958584, 0.026594792, 0.9996351, 0.004654795, -0.3395858, 0.0046548173, 0.94056314, 0.61606526, 0.5583905, -0.013151884)
+
+[node name="fence_broken" parent="." unique_id=340609278 instance=ExtResource("27_j7bvy")]
+transform = Transform3D(0.3542094, 0, -0.93516606, 0, 1, 0, 0.93516606, 0, 0.3542094, 2.9264715, 0.070269585, -7.184675)
+
+[node name="box1" parent="." unique_id=286610535 instance=ExtResource("28_1dqgb")]
+transform = Transform3D(0.7976753, 0.06073899, -0.0049904515, -0.060943652, 0.7949965, -0.065318696, 0, 0.06550906, 0.7973134, -17.122787, 0.32497233, -11.314534)
+
+[node name="helmet3" parent="." unique_id=1378830126 instance=ExtResource("22_pn65j")]
+transform = Transform3D(0.9911067, 0.13306944, 0, -0.13303839, 0.99087536, -0.021605492, -0.0028750312, 0.02141335, 0.9997666, -17.012976, 1.0467318, -11.254021)
+
+[node name="shelf" parent="." unique_id=1995179851 instance=ExtResource("29_y81of")]
+transform = Transform3D(0.6412488, 0, 0.76733315, 0, 1, 0, -0.76733315, 0, 0.6412488, -14.562443, 0.29620773, -12.43166)
+
+[node name="box" parent="." unique_id=1054926308 instance=ExtResource("16_gm488")]
+transform = Transform3D(0.113827415, 0, 0.99350053, 0.09969216, 0.9949528, -0.0114219375, -0.9884861, 0.100344345, 0.11325291, -31.723598, 0.0027863234, -40.367935)
+
+[node name="box4" parent="." unique_id=850562817 instance=ExtResource("30_gsk6d")]
+transform = Transform3D(0.96788055, 0.019716702, 0.25063628, 0, 0.99692005, -0.0784243, -0.25141057, 0.07590535, 0.96489954, -31.74937, 0.889942, -40.279133)
+
+[node name="gate3" parent="." unique_id=1789187936 instance=ExtResource("5_j5jx5")]
+transform = Transform3D(0.63739705, 0, 0.77053547, 0, 1, 0, -0.77053547, 0, 0.63739705, -27.79546, 0.1892316, -38.772568)
+
+[node name="locker3" parent="." unique_id=1049143769 instance=ExtResource("20_c6rvn")]
+transform = Transform3D(-0.7545149, 0, 0.65628296, 0, 1, 0, -0.65628296, 0, -0.7545149, -21.11387, 0.34553283, -36.033524)
+
+[node name="locker4" parent="." unique_id=443404952 instance=ExtResource("20_c6rvn")]
+transform = Transform3D(-0.23968582, 0, 0.9708505, 0, 1, 0, -0.9708505, 0, -0.23968582, -20.62255, 0.32706293, -35.392654)
+
 [editable path="level"]
+[editable path="2boxes"]
+[editable path="2boxes/boxes"]
