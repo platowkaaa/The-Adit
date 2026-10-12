@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://c0nnkru88hslv"]
 
 [ext_resource type="Script" uid="uid://cri78el8xmlji" path="res://scripts/note.gd" id="1_t3yvt"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_1bnk6"]
+[ext_resource type="PackedScene" uid="uid://b4sbyq310hui7" path="res://assets/models/note.glb" id="2_1bnk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_43c4j"]
+size = Vector3(0.374, 0.049, 0.295)
 
 [node name="note" type="StaticBody3D" unique_id=3738516 groups=["interactable"]]
 script = ExtResource("1_t3yvt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=361481568]
-mesh = SubResource("BoxMesh_1bnk6")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1601477569]
 shape = SubResource("BoxShape3D_43c4j")
+
+[node name="note" parent="." unique_id=1300136596 instance=ExtResource("2_1bnk6")]
+
+[node name="Plane" parent="note" index="0" unique_id=647659286]
+cast_shadow = 0
+
+[editable path="note"]

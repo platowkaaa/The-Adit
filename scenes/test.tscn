@@ -102,18 +102,14 @@ data = PackedVector3Array(-4.6317, 1.1431999, -7.3961997, -4.5466, 1.7136999, -7
 [sub_resource type="BoxMesh" id="BoxMesh_jcd4p"]
 size = Vector3(0.25, 0.35, 0.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_uacia"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yk7ts"]
-
 [node name="test" type="Node3D" unique_id=1179884041]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1040789860]
 environment = SubResource("Environment_bl13t")
 
 [node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
-transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -25.20714, 0.48817348, -33.467575)
-speed = 1.5
+transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -46.629986, 0.48817348, -3.865387)
+speed = 6.0
 enemy_lamp = NodePath("../EnemyLamp")
 
 [node name="Wall_lamp" parent="." unique_id=672236050 instance=ExtResource("3_74lek")]
@@ -182,7 +178,6 @@ required_switches = 1
 
 [node name="gate2" parent="." unique_id=374136928 instance=ExtResource("5_j5jx5")]
 transform = Transform3D(0.7414113, 0, -0.74351084, 0, 1.0499997, 0, 0.74351084, 0, 0.7414113, -39.165966, 0.30910504, -14.743065)
-prompt = "open"
 required_switches = 2
 
 [node name="key" parent="." unique_id=492280366 instance=ExtResource("6_lpvoh")]
@@ -192,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8297768, 0.7791215, -13.02
 transform = Transform3D(-0.03438747, -0.120012805, 0.9921767, -0.9376887, 0.34734666, 0.009515742, -0.34577113, -0.93002546, -0.124478996, -31.452227, 0.9771012, -40.392727)
 
 [node name="note" parent="." unique_id=3738516 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.209905, 0.79700315, 11.701165)
+transform = Transform3D(6.519241e-08, -0.36812454, 0.9297765, -1, 4.371139e-08, 8.742278e-08, -7.282429e-08, -0.9297765, -0.36812454, 13.03451, 1.5163262, 11.898393)
 pages = ["WHEAL HENDRA — DIAL SURVEY, 30 fm LEVEL
 Sheet 2. Sta. 5–8. 14 March 1897.
 
@@ -205,7 +200,7 @@ Left the lamp burning at the station, as I always do. A dial cannot be read by c
 — W.H.P."]
 
 [node name="note2" parent="." unique_id=1146967516 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7870703, 0.79700315, -8.701959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.894795, 0.8775934, -2.398156)
 pages = ["Sheet 4. Sta. 12–16. 19 March.
 
 My traverse will not close. I have run it twice. Between the 30 and the 40 the workings measure 214 ft longer than the plan of 1874 allows, and the error is not in my chain.
@@ -219,7 +214,7 @@ Two men were promised me. One came. He will not go below the 40 and would not te
 — W.H.P."]
 
 [node name="note3" parent="." unique_id=1276055746 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.20773, 0.79700315, -17.533033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.011768, 0.89979017, -11.96275)
 pages = ["Sheet 7. 60 fm level, west end. 26 March.
 
 Water to the knee here and rising. The 70 is drowned altogether.
@@ -233,7 +228,7 @@ It came from below me. There is nothing below me. The 70 is drowned and the 80 w
 — W.H.P."]
 
 [node name="note4" parent="." unique_id=691968793 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.243199, 0.79700315, -25.478308)
+transform = Transform3D(-4.296308e-08, -0.9828807, 0.18424289, 1, -4.371139e-08, 0, 8.053515e-09, 0.18424289, 0.9828807, -16.901, 1.5879958, -24.214)
 pages = ["Sheet 9. 27 March. Not for the office.
 
 I have had it out of Angove at last. Since Michaelmas: four men. Bennetts, Tregear, the Rowe boy, and one he would not name. All from the deep ends. All alone. None found.
@@ -247,7 +242,7 @@ I am to report on the lode, and I shall report on the lode. But I go down to the
 — W.H.P."]
 
 [node name="note5" parent="." unique_id=319425509 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.690647, -2.0696502, 1.8693314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.78736, -0.15143955, -3.5342155)
 pages = ["No station. I cannot fix it.
 
 There is a stair cut in the rock below the 70. It turns down, and it is the work of hands, and of a long time. No one cut it for the company. It is not on the plan of 1874 because it was here before the plan.
@@ -350,16 +345,6 @@ light_energy = 0.5
 omni_range = 3.0
 omni_attenuation = 0.8
 
-[node name="klet" type="StaticBody3D" parent="." unique_id=1794248820 groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.052547, 1.0562245, -4.164874)
-script = ExtResource("9_uacia")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="klet" unique_id=1035791449]
-mesh = SubResource("BoxMesh_uacia")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="klet" unique_id=112027398]
-shape = SubResource("BoxShape3D_yk7ts")
-
 [node name="frame" parent="." unique_id=1621843156 instance=ExtResource("14_7mbro")]
 transform = Transform3D(0.82542217, 0, 0.30508727, 0, 0.8800001, 0, -0.30508727, 0, 0.82542217, 6.5331206, 0.061745852, 11.658057)
 
@@ -401,6 +386,7 @@ transform = Transform3D(-0.47693095, 0, -0.6645758, 0, 0.81800014, 0, 0.6645758,
 
 [node name="lift" parent="." unique_id=1722839734 instance=ExtResource("16_7yos8")]
 transform = Transform3D(-0.14126417, 0, -0.989972, 0, 1, 0, 0.989972, 0, -0.14126417, -48.821926, -2.9000208, -3.3737538)
+script = ExtResource("9_uacia")
 
 [node name="pick" parent="." unique_id=926507453 instance=ExtResource("17_5jxlq")]
 transform = Transform3D(0.96953166, -0.23833007, -0.05663295, 0.23792453, 0.9711843, -0.013897816, 0.0583133, -8.829857e-10, 0.99829835, -47.417805, -0.23128831, -4.220994)
