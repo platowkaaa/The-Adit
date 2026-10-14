@@ -108,7 +108,7 @@ size = Vector3(0.25, 0.35, 0.2)
 environment = SubResource("Environment_bl13t")
 
 [node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
-transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -46.629986, 0.48817348, -3.865387)
+transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -8.275824, 0.48817348, -13.18415)
 speed = 6.0
 enemy_lamp = NodePath("../EnemyLamp")
 
@@ -181,7 +181,7 @@ transform = Transform3D(0.7414113, 0, -0.74351084, 0, 1.0499997, 0, 0.74351084, 
 required_switches = 2
 
 [node name="key" parent="." unique_id=492280366 instance=ExtResource("6_lpvoh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8297768, 0.7791215, -13.027734)
+transform = Transform3D(0.25166395, 0, 0.9678147, 0, 1, 0, -0.9678147, 0, 0.25166395, -5.657917, 0.8564913, -2.2692347)
 
 [node name="fuse" parent="." unique_id=185651309 instance=ExtResource("7_at5dv")]
 transform = Transform3D(-0.03438747, -0.120012805, 0.9921767, -0.9376887, 0.34734666, 0.009515742, -0.34577113, -0.93002546, -0.124478996, -31.452227, 0.9771012, -40.392727)
@@ -200,7 +200,7 @@ Left the lamp burning at the station, as I always do. A dial cannot be read by c
 — W.H.P."]
 
 [node name="note2" parent="." unique_id=1146967516 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.894795, 0.8775934, -2.398156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.894795, 0.88560724, -2.398156)
 pages = ["Sheet 4. Sta. 12–16. 19 March.
 
 My traverse will not close. I have run it twice. Between the 30 and the 40 the workings measure 214 ft longer than the plan of 1874 allows, and the error is not in my chain.

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://31l0sl2svu5l"]
 
 [ext_resource type="Script" uid="uid://djplonjaulirc" path="res://scripts/pickup.gd" id="1_yk2u2"]
+[ext_resource type="PackedScene" uid="uid://drf0ncfe7xqxs" path="res://assets/models/key.glb" id="2_fttkb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fttkb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wy8tx"]
+size = Vector3(0.22982788, 0.14413452, 0.14562988)
 
 [node name="key" type="StaticBody3D" unique_id=492280366 groups=["interactable"]]
 script = ExtResource("1_yk2u2")
@@ -12,7 +12,7 @@ item_id = "key"
 thought_text = "A key. Heavy, and cold."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=667440338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047470093, 0.0075531006, 0.0053100586)
 shape = SubResource("BoxShape3D_fttkb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=977650356]
-mesh = SubResource("BoxMesh_wy8tx")
+[node name="key" parent="." unique_id=442167099 instance=ExtResource("2_fttkb")]
