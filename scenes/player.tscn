@@ -10,12 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bauounw0yckjs" path="res://assets/textures/Paper005_1K-JPG_Color.jpg" id="5_ur7pv"]
 [ext_resource type="FontFile" uid="uid://bfmh74gtgqk7r" path="res://assets/fonts/OldStandardTT-Bold.ttf" id="7_ur7pv"]
 [ext_resource type="FontFile" uid="uid://chwyku3xivoe0" path="res://assets/fonts/OldStandardTT-Regular.ttf" id="8_y4r1p"]
+[ext_resource type="Shader" uid="uid://bu0lp0mkwpr3m" path="res://shaders/old_tv.gdshader" id="9_oldtv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 radius = 0.25
 height = 1.8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4r1p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2wvv"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
@@ -23,6 +24,22 @@ albedo_color = Color(0.9490196, 0.92156863, 0.85490197, 0.15686275)
 emission_enabled = true
 emission = Color(1, 0.7019608, 0.41960785, 1)
 emission_energy_multiplier = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oldtv"]
+shader = ExtResource("9_oldtv")
+shader_parameter/grain = 0.04
+shader_parameter/scanline_strength = 0.06
+shader_parameter/scanline_count = 240.0
+shader_parameter/wobble = 0.0004
+shader_parameter/band_strength = 0.010000000475
+shader_parameter/band_width = 0.03000000072648
+shader_parameter/band_speed = 0.05
+shader_parameter/band_shift = 0.002
+shader_parameter/desaturate = 0.250000011875
+shader_parameter/vignette = 0.6000000285
+shader_parameter/glitch_strength = 0.02000000095
+shader_parameter/glitch_interval = 12.0
+shader_parameter/glitch_length = 0.2
 
 [node name="player" type="CharacterBody3D" unique_id=2098263217]
 script = ExtResource("1_3vyb7")
@@ -56,17 +73,17 @@ base_energy = 0.6
 [node name="lantern" parent="head/Lamp" unique_id=1539904532 instance=ExtResource("3_y4r1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.083, 0)
 
-[node name="tank" parent="head/Lamp/lantern" index="0" unique_id=23504663]
+[node name="tank" parent="head/Lamp/lantern" index="0" unique_id=344004644]
 layers = 2
 
-[node name="glass" parent="head/Lamp/lantern/tank" index="0" unique_id=530106406]
+[node name="glass" parent="head/Lamp/lantern/tank" index="0" unique_id=1206529095]
 layers = 2
-surface_material_override/0 = SubResource("StandardMaterial3D_y4r1p")
+surface_material_override/0 = SubResource("StandardMaterial3D_d2wvv")
 
-[node name="guard" parent="head/Lamp/lantern/tank" index="1" unique_id=1743966453]
+[node name="guard" parent="head/Lamp/lantern/tank" index="1" unique_id=418310368]
 layers = 2
 
-[node name="handle" parent="head/Lamp/lantern/tank/guard" index="0" unique_id=1646135347]
+[node name="handle" parent="head/Lamp/lantern/tank/guard" index="0" unique_id=1992422010]
 layers = 2
 
 [node name="FillLight" type="OmniLight3D" parent="head" unique_id=1990807920]
@@ -74,6 +91,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31116033, -0.07961333, -0.3
 light_energy = 0.1
 light_cull_mask = 4294966274
 omni_range = 0.5
+
+[node name="TVLayer" type="CanvasLayer" parent="." unique_id=704006852]
+layer = 0
+
+[node name="OldTV" type="ColorRect" parent="TVLayer" unique_id=180623637]
+material = SubResource("ShaderMaterial_oldtv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1616116596]
 

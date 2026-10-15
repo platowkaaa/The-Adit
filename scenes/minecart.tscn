@@ -9,9 +9,15 @@ data = PackedVector3Array(-1.9609, 0.4619, -0.8806, 3.8411999, 0.4619, 0, 3.8411
 
 [node name="minecart" parent="." unique_id=601279497 instance=ExtResource("1_posbo")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="minecart/Cube" parent_id_path=PackedInt32Array(601279497, 506298293) index="0" unique_id=852178786]
+[node name="Cube" parent="minecart" index="0" unique_id=506298293]
+cast_shadow = 0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="minecart/Cube" index="0" unique_id=852178786]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="minecart/Cube/StaticBody3D" unique_id=574862131]
 shape = SubResource("ConcavePolygonShape3D_oc4m2")
+
+[node name="Cylinder" parent="minecart" index="1" unique_id=1046032130]
+cast_shadow = 0
 
 [editable path="minecart"]

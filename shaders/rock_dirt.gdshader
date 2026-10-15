@@ -5,7 +5,6 @@ shader_type spatial;
 //   белый = камень (так по умолчанию), чёрный = земля.
 // Обе текстуры ложатся triplanar — по положению в мире, без UV-развёртки,
 // поэтому на кривой пещере нет швов.
-// Неделя 15: сюда же добавится PSX (дрожание вершин, квантование и т.д.).
 
 group_uniforms rock;
 uniform sampler2D rock_albedo : source_color, filter_nearest_mipmap, repeat_enable;
