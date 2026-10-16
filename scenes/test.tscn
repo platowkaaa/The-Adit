@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dxwsfv62jk7nl" path="res://scenes/box_1.tscn" id="28_1dqgb"]
 [ext_resource type="PackedScene" uid="uid://btj8mlqlubnle" path="res://scenes/shelf.tscn" id="29_y81of"]
 [ext_resource type="PackedScene" uid="uid://combaudmhk7m7" path="res://scenes/box_3.tscn" id="30_gsk6d"]
+[ext_resource type="PackedScene" uid="uid://dnmkrjbty31x7" path="res://scenes/water.tscn" id="31_2cnsr"]
 
 [sub_resource type="Environment" id="Environment_bl13t"]
 background_mode = 1
@@ -108,7 +109,7 @@ size = Vector3(0.25, 0.35, 0.2)
 environment = SubResource("Environment_bl13t")
 
 [node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
-transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -8.275824, 0.48817348, -13.18415)
+transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, -19.423866, 0.48817348, -20.955399)
 enemy_lamp = NodePath("../EnemyLamp")
 
 [node name="Wall_lamp" parent="." unique_id=672236050 instance=ExtResource("3_74lek")]
@@ -467,6 +468,10 @@ transform = Transform3D(-0.7545149, 0, 0.65628296, 0, 1, 0, -0.65628296, 0, -0.7
 
 [node name="locker4" parent="." unique_id=443404952 instance=ExtResource("20_c6rvn")]
 transform = Transform3D(-0.23968582, 0, 0.9708505, 0, 1, 0, -0.9708505, 0, -0.23968582, -20.62255, 0.32706293, -35.392654)
+
+[node name="water" parent="." unique_id=1599957090 node_paths=PackedStringArray("player") instance=ExtResource("31_2cnsr")]
+transform = Transform3D(-3.742291, 0, -3.31591, 0, 4.9999995, 0, 3.31591, 0, -3.742291, -30.66182, 0.2849207, -27.383554)
+player = NodePath("../player")
 
 [editable path="level"]
 [editable path="2boxes"]

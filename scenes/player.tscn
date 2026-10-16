@@ -28,9 +28,9 @@ emission_energy_multiplier = 0.4
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oldtv"]
 shader = ExtResource("9_oldtv")
 shader_parameter/grain = 0.04
-shader_parameter/scanline_strength = 0.06
+shader_parameter/scanline_strength = 0.010000000475
 shader_parameter/scanline_count = 240.0
-shader_parameter/wobble = 0.0004
+shader_parameter/wobble = 0.0
 shader_parameter/band_strength = 0.010000000475
 shader_parameter/band_width = 0.03000000072648
 shader_parameter/band_speed = 0.05

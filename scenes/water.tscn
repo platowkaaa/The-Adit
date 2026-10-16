@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dnmkrjbty31x7"]
+
+[ext_resource type="Shader" uid="uid://ysvkc2wbks50" path="res://shaders/water.gdshader" id="1_water"]
+[ext_resource type="Script" uid="uid://bub0is7lmfo2e" path="res://scripts/water.gd" id="2_water"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_water"]
+render_priority = 0
+shader = ExtResource("1_water")
+shader_parameter/water_color = Color(0.0055544064, 0.0006190417, 0.00051619875, 1)
+shader_parameter/clarity = 0.30000001425
+shader_parameter/roughness = 0.06
+shader_parameter/player_pos = Vector3(0, -1000, 0)
+shader_parameter/player_moving = 0.0
+shader_parameter/ripple_scale = 1.5
+shader_parameter/ripple_speed = 0.15
+shader_parameter/ripple_strength = 0.35
+shader_parameter/ring_strength = 0.6
+shader_parameter/ring_frequency = 18.0
+shader_parameter/ring_speed = 6.0
+shader_parameter/ring_radius = 1.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+size = Vector2(6, 6)
+
+[node name="water" type="MeshInstance3D" unique_id=1953049483]
+material_override = SubResource("ShaderMaterial_water")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_water")
+script = ExtResource("2_water")
