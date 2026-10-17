@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="shtolnya"
+config/name="TheAdit"
 run/main_scene="uid://cwug40a2266fh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -82,3 +82,4 @@ accelerate={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+scaling_3d/scale=0.85

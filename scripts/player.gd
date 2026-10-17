@@ -23,6 +23,11 @@ extends CharacterBody3D
 @onready var blackout: ColorRect = $CanvasLayer/Blackout 
 @onready var lamp: Node3D = $head/Lamp
 @export var enemy_lamp: Node3D
+@export var intro_lines: Array[String] = [
+	"The way I came in is gone. The roof's come down.",
+	"The only way up now is the cage.",
+	"It won't run without power. I'll have to find the switches.",
+]
 
 @export var rock_steps: Array[AudioStream] = []
 @export var water_steps: Array[AudioStream] = []
@@ -34,6 +39,7 @@ extends CharacterBody3D
 @onready var continue_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/ContinueButton
 @onready var quit_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/QuitButton
 var in_water: bool = false
+var after_note_thought: String = ""
 var step_distance: float = 0.0
 
 # --- Состояние ---
@@ -82,6 +88,19 @@ func _ready() -> void:
 
 	lamp_base_pos = lamp.position
 	lamp_probe.radius = LAMP_RADIUS
+
+	_play_intro()
+
+
+func _play_intro() -> void:
+	in_cutscene = true
+	_apply_state()
+	await get_tree().create_timer(1.0, false).timeout
+	for line in intro_lines:
+		Story.say(line)
+		await get_tree().create_timer(3.6, false).timeout
+	in_cutscene = false
+	_apply_state()
 
 func _play_ending() -> void:
 	chase_music.stop()
@@ -178,7 +197,8 @@ func is_busy() -> bool:
 	return reading or paused or ended or in_cutscene
  
 
-func read_note(pages: PackedStringArray) -> void:
+func read_note(pages: PackedStringArray, thought: String = "") -> void:
+	after_note_thought = thought
 	note_panel.show_note(pages)
 	set_reading(true)
 
@@ -188,6 +208,9 @@ func set_reading(value: bool) -> void:
 
 	if not value:
 		note_panel.hide_note()
+		if after_note_thought != "":
+			Story.say(after_note_thought)
+			after_note_thought = ""
 
 	_apply_state()
  

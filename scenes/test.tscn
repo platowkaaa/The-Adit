@@ -111,8 +111,7 @@ data = PackedVector3Array(-4.6317, 1.1431999, -7.3961997, -4.5466, 1.7136999, -7
 environment = SubResource("Environment_bl13t")
 
 [node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
-transform = Transform3D(-0.8507653, 0, -0.52554584, 0, 1, 0, 0.52554584, 0, -0.8507653, 16.27082, 0.48817348, 9.901924)
-speed = 6.0
+transform = Transform3D(0.5599884, 0, -0.82850045, 0, 1, 0, 0.82850045, 0, 0.5599884, 15.8985195, 0.16968578, 10.677005)
 enemy_lamp = NodePath("../EnemyLamp")
 
 [node name="Wall_lamp" parent="." unique_id=672236050 instance=ExtResource("3_74lek")]
@@ -192,6 +191,7 @@ transform = Transform3D(-0.03438747, -0.120012805, 0.9921767, -0.9376887, 0.3473
 pickup_sound = null
 
 [node name="note" parent="." unique_id=3738516 instance=ExtResource("8_jcd4p")]
+thought_text = "Another surveyor's notes. Someone was sent down here before me."
 transform = Transform3D(6.519241e-08, -0.36812454, 0.9297765, -1, 4.371139e-08, 8.742278e-08, -7.282429e-08, -0.9297765, -0.36812454, 13.03451, 1.5163262, 11.898393)
 pages = ["WHEAL HENDRA — DIAL SURVEY, 30 fm LEVEL
 Sheet 2. Sta. 5–8. 14 March 1897.

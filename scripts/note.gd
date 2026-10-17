@@ -7,9 +7,8 @@ extends StaticBody3D
 var was_read: bool = false
 
 func interact(player: Node) -> void:
-	player.read_note(pages)
-
+	var after := ""
 	if not was_read:
 		was_read = true
-		if thought_text != "":
-			Story.say(thought_text)
+		after = thought_text
+	player.read_note(pages, after)
