@@ -23,3 +23,5 @@
 - Kill Switch (Large Breaker Switch) — EchoCinematics, Freesound — https://freesound.org/people/EchoCinematics/sounds/131599/ — CC0
 - Picking up something metal — ChrisReierson, Freesound — https://freesound.org/people/ChrisReierson/sounds/383103/ — CC BY 4.0
 - Pick up Key — SilverIllusionist, Freesound — https://freesound.org/people/SilverIllusionist/sounds/411179/ — CC BY 4.0
+- Matchbox Lighting Match Stick — ImAFoley, Freesound — https://freesound.org/people/ImAFoley/sounds/516882/ — CC0
+- Zombie Chase — NightWolfCFM, Freesound — https://freesound.org/people/NightWolfCFM/sounds/425134/ — CC BY 4.0. Edited: middle break removed.
