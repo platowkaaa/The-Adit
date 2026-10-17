@@ -348,4 +348,75 @@ theme_override_fonts/font = ExtResource("8_y4r1p")
 theme_override_font_sizes/font_size = 24
 text = "Play again"
 
+[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=1972640113]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dim" type="ColorRect" parent="CanvasLayer/PauseMenu" unique_id=1235791102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="paper" type="TextureRect" parent="CanvasLayer/PauseMenu" unique_id=1662084519]
+custom_minimum_size = Vector2(440, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -200.0
+offset_right = 220.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_ur7pv")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/paper" unique_id=1093315871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/PauseMenu/paper/VBoxContainer" unique_id=1530186624]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15686275, 0.1254902, 0.09803922, 1)
+theme_override_fonts/font = ExtResource("7_ur7pv")
+theme_override_font_sizes/font_size = 52
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/PauseMenu/paper/VBoxContainer" unique_id=1782345120]
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_y4r1p")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/paper/VBoxContainer" unique_id=1309866521]
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_y4r1p")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
 [editable path="head/Lamp/lantern"]

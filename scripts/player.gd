@@ -30,6 +30,9 @@ extends CharacterBody3D
 @onready var steps_player: AudioStreamPlayer = $Steps
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
 @onready var run_label: Label = $CanvasLayer/RunLabel
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
+@onready var continue_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/ContinueButton
+@onready var quit_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/QuitButton
 var in_water: bool = false
 var step_distance: float = 0.0
 
@@ -67,6 +70,9 @@ func _ready() -> void:
 	prompt_label.visible = false
 	blackout.visible = false
 	GameState.time_is_up.connect(_on_time_is_up) 
+	continue_button.pressed.connect(_on_continue_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
+	quit_button.visible = not OS.has_feature("web")
 	GameState.power_restored.connect(_play_finale_cutscene)
 	GameState.escaped.connect(_play_ending)
 
@@ -188,7 +194,16 @@ func set_reading(value: bool) -> void:
 
 func set_paused(value: bool) -> void:
 	paused = value
+	pause_menu.visible = value
 	_apply_state()
+
+
+func _on_continue_pressed() -> void:
+	set_paused(false)
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
  
  
 func _apply_state() -> void:
