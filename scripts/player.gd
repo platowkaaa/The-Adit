@@ -71,6 +71,19 @@ var shake_noise:= FastNoiseLite.new()
 func _ready() -> void:
  
 	process_mode = Node.PROCESS_MODE_ALWAYS
+
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("""
+			window.godotWantsLock = false;
+			const canvas = document.getElementById('canvas') || document.querySelector('canvas');
+			const lock = () => {
+				if (window.godotWantsLock && document.pointerLockElement !== canvas) {
+					canvas.requestPointerLock();
+				}
+			};
+			canvas.addEventListener('mousedown', lock);
+			window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') lock(); });
+		""", true)
  
 	head_base_y = head.position.y
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -233,6 +246,8 @@ func _on_quit_pressed() -> void:
 func _apply_state() -> void:
 	var world_stopped: bool = reading or paused or ended
 	get_tree().paused = world_stopped
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.godotWantsLock = %s;" % ("false" if world_stopped else "true"), true)
 	if world_stopped:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
