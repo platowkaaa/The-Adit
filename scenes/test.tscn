@@ -191,7 +191,6 @@ transform = Transform3D(-0.03438747, -0.120012805, 0.9921767, -0.9376887, 0.3473
 pickup_sound = null
 
 [node name="note" parent="." unique_id=3738516 instance=ExtResource("8_jcd4p")]
-thought_text = "Another surveyor's notes. Someone was sent down here before me."
 transform = Transform3D(6.519241e-08, -0.36812454, 0.9297765, -1, 4.371139e-08, 8.742278e-08, -7.282429e-08, -0.9297765, -0.36812454, 13.03451, 1.5163262, 11.898393)
 pages = ["WHEAL HENDRA — DIAL SURVEY, 30 fm LEVEL
 Sheet 2. Sta. 5–8. 14 March 1897.
@@ -203,6 +202,7 @@ Lode at Sta. 7 stands 3 ft 4 in. and clean. I have taken a sample and will take 
 Left the lamp burning at the station, as I always do. A dial cannot be read by candle, and I have no wish to walk this ground twice in the dark.
 
 — W.H.P."]
+thought_text = "Another surveyor's notes. Someone was sent down here before me."
 
 [node name="note2" parent="." unique_id=1146967516 instance=ExtResource("8_jcd4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.894795, 0.88560724, -2.398156)

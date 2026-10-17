@@ -40,7 +40,6 @@ extends CharacterBody3D
 @onready var quit_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/QuitButton
 var in_water: bool = false
 var after_note_thought: String = ""
-var was_captured: bool = false
 var step_distance: float = 0.0
 
 # --- Состояние ---
@@ -75,6 +74,7 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("""
 			window.godotWantsLock = false;
+			window.godotLockLost = false;
 			const canvas = document.getElementById('canvas') || document.querySelector('canvas');
 			const lock = () => {
 				if (window.godotWantsLock && document.pointerLockElement !== canvas) {
@@ -83,6 +83,11 @@ func _ready() -> void:
 			};
 			canvas.addEventListener('mousedown', lock);
 			window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') lock(); });
+			document.addEventListener('pointerlockchange', () => {
+				if (document.pointerLockElement !== canvas && window.godotWantsLock) {
+					window.godotLockLost = true;
+				}
+			});
 		""", true)
  
 	head_base_y = head.position.y
@@ -287,11 +292,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			set_reading(false)
 		return
 
-	if (event is InputEventMouseButton or event is InputEventKey) and event.pressed and not (reading or paused or ended):
-		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			return
-
 	if is_busy():
 		return
 
@@ -419,8 +419,7 @@ func _update_steps(delta: float) -> void:
 
 
 func _check_web_mouse() -> void:
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		was_captured = true
-	elif was_captured and not is_busy():
-		was_captured = false
-		set_paused(true)
+	if JavaScriptBridge.eval("window.godotLockLost === true", true):
+		JavaScriptBridge.eval("window.godotLockLost = false;", true)
+		if not paused and not reading and not ended:
+			set_paused(true)
