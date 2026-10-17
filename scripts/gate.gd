@@ -9,6 +9,7 @@ extends StaticBody3D
 @onready var collision: CollisionShape3D = $CollisionShape3D
 @export var door: Node3D  
 @export var open_angle: float = 100.0  
+@export var sound: AudioStreamPlayer3D
 
 var is_open: bool = false
 
@@ -35,6 +36,9 @@ func _open() -> void:
 	if door:
 		var swing := create_tween()
 		swing.tween_property(door, "rotation:y", door.rotation.y + deg_to_rad(open_angle), 1.2).set_trans(Tween.TRANS_SINE)
+
+	if sound:
+		sound.play()
 
 	collision.set_deferred("disabled", true)
 

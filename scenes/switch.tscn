@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c1yswn252y5kv" path="res://scripts/switch.gd" id="1_1i7pn"]
 [ext_resource type="PackedScene" uid="uid://cpbduc1oa6ygt" path="res://assets/models/switch.glb" id="2_e08h5"]
+[ext_resource type="AudioStream" path="res://assets/sounds/sfx/switch_pull.ogg" id="3_pull"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ew8i5"]
 size = Vector3(0.374, 0.628, 0.244)
 
-[node name="switch" type="StaticBody3D" unique_id=1248639531 node_paths=PackedStringArray("blade") groups=["interactable"]]
+[node name="switch" type="StaticBody3D" unique_id=1248639531 node_paths=PackedStringArray("blade", "sound") groups=["interactable"]]
 script = ExtResource("1_1i7pn")
 blade = NodePath("switch/switch_base/switch_blade")
 blade_angle = -145.0
+sound = NodePath("Sound")
 
 [node name="switch" parent="." unique_id=1878574415 instance=ExtResource("2_e08h5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -24,5 +26,8 @@ cast_shadow = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407558815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059648454, -0.0075439513, 0.051884495)
 shape = SubResource("BoxShape3D_ew8i5")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="." unique_id=1520873364]
+stream = ExtResource("3_pull")
 
 [editable path="switch"]

@@ -8,13 +8,13 @@ extends StaticBody3D
 
 @export var blade: Node3D  
 @export var blade_angle: float = -180.0  
+@export var sound: AudioStreamPlayer3D
 
 var is_on: bool = false
-var _talking: bool = false    # идёт пара фраз — повторные нажатия не считаются
-var _told_once: bool = false  # первая фраза уже была
+var _talking: bool = false
+var _told_once: bool = false
 
 func _ready() -> void:
-	# Рубильник без ручки: ручку сначала надо найти.
 	if required_item != "" and blade:
 		blade.visible = false
 
@@ -35,6 +35,8 @@ func interact(player: Node) -> void:
 	if blade:
 		var pull := create_tween()
 		pull.tween_property(blade, "rotation:z", blade.rotation.z + deg_to_rad(blade_angle), 1.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if sound:
+		sound.play()
 	remove_from_group("interactable")
 	GameState.throw_switch()
 
@@ -42,7 +44,6 @@ func interact(player: Node) -> void:
 		Story.say(thought_on)
 
 
-# Рубильник без ручки. Первый раз — две фразы подряд, дальше только вторая.
 func _say_locked() -> void:
 	if _talking:
 		return
@@ -54,7 +55,6 @@ func _say_locked() -> void:
 	_talking = true
 	_told_once = true
 	Story.say(thought_locked)
-	# Ждём, пока первая фраза погаснет: 3 с на экране + 0.6 с затухания (thought_label.gd).
 	await get_tree().create_timer(3.6).timeout
 	if thought_locked_2 != "":
 		Story.say(thought_locked_2)

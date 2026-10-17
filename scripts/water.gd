@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 		return
 	var speed := Vector2(player.velocity.x, player.velocity.z).length()
 	var target := clampf(speed / 1.5, 0.0, 1.0)
-	_moving = lerpf(_moving, target, minf(delta * 3.0, 1.0))  # круги затухают плавно, а не пропадают разом
+	_moving = lerpf(_moving, target, minf(delta * 3.0, 1.0))
 	_mat.set_shader_parameter("player_pos", player.global_position)
 	_mat.set_shader_parameter("player_moving", _moving)
 

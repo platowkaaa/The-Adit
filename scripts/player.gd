@@ -24,12 +24,11 @@ extends CharacterBody3D
 @onready var lamp: Node3D = $head/Lamp
 @export var enemy_lamp: Node3D
 
-# --- Шаги ---
 @export var rock_steps: Array[AudioStream] = []
 @export var water_steps: Array[AudioStream] = []
-@export var step_length: float = 1.0  # через сколько метров звучит шаг
+@export var step_length: float = 1.0
 @onready var steps_player: AudioStreamPlayer = $Steps
-var in_water: bool = false  # ставит вода (water.gd)
+var in_water: bool = false
 var step_distance: float = 0.0
 
 # --- Состояние ---
@@ -324,7 +323,7 @@ func _update_lamp_pushback(delta: float) -> void:
 func _update_steps(delta: float) -> void:
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
 	if not is_on_floor() or horizontal_speed < 0.1:
-		step_distance = step_length  
+		step_distance = step_length
 		return
 
 	step_distance += horizontal_speed * delta
