@@ -110,9 +110,10 @@ data = PackedVector3Array(-4.6317, 1.1431999, -7.3961997, -4.5466, 1.7136999, -7
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1040789860]
 environment = SubResource("Environment_bl13t")
 
-[node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp") instance=ExtResource("1_errlg")]
+[node name="player" parent="." unique_id=2098263217 node_paths=PackedStringArray("enemy_lamp", "ambience") instance=ExtResource("1_errlg")]
 transform = Transform3D(0.5599884, 0, -0.82850045, 0, 1, 0, 0.82850045, 0, 0.5599884, 15.8985195, 0.16968578, 10.677005)
 enemy_lamp = NodePath("../EnemyLamp")
+ambience = NodePath("../Ambience")
 
 [node name="Wall_lamp" parent="." unique_id=672236050 instance=ExtResource("3_74lek")]
 transform = Transform3D(-0.16625248, 0, -0.9860833, -0.057639174, 0.9982902, 0.009717897, 0.9843973, 0.058452655, -0.16596822, 13.344032, 1.1484777, 12.801032)

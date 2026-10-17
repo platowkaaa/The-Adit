@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://ca1kc50ac63pv" path="res://assets/sounds/steps/water_5.ogg" id="20_water5"]
 [ext_resource type="AudioStream" uid="uid://c80coksfk2lwt" path="res://assets/sounds/steps/water_6.ogg" id="20_water6"]
 [ext_resource type="AudioStream" path="res://assets/sounds/music/chase.ogg" id="21_chase"]
+[ext_resource type="AudioStream" path="res://assets/sounds/sfx/scream.ogg" id="22_scream"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 radius = 0.25
@@ -113,6 +114,9 @@ volume_db = -20.0
 [node name="ChaseMusic" type="AudioStreamPlayer" parent="." unique_id=1844102367]
 process_mode = 1
 stream = ExtResource("21_chase")
+
+[node name="Scream" type="AudioStreamPlayer" parent="." unique_id=1268150473]
+stream = ExtResource("22_scream")
 
 [node name="TVLayer" type="CanvasLayer" parent="." unique_id=704006852]
 layer = 0
@@ -244,6 +248,16 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "[E] next    [Esc] close"
 
+[node name="Flash" type="ColorRect" parent="CanvasLayer" unique_id=1987350921]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.86, 0.62, 1)
+
 [node name="RunLabel" type="Label" parent="CanvasLayer" unique_id=1460251877]
 process_mode = 3
 visible = false
@@ -326,10 +340,12 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 
 [node name="Headline" type="Label" parent="CanvasLayer/Newspaper/paper/MarginContainer/VBoxContainer" unique_id=888153609]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15686275, 0.1254902, 0.09803922, 1)
 theme_override_fonts/font = ExtResource("7_ur7pv")
 theme_override_font_sizes/font_size = 52
+autowrap_mode = 2
 
 [node name="Body" type="Label" parent="CanvasLayer/Newspaper/paper/MarginContainer/VBoxContainer" unique_id=32787171]
 custom_minimum_size = Vector2(600, 0)

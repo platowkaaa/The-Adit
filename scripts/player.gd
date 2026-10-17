@@ -23,6 +23,7 @@ extends CharacterBody3D
 @onready var blackout: ColorRect = $CanvasLayer/Blackout 
 @onready var lamp: Node3D = $head/Lamp
 @export var enemy_lamp: Node3D
+@export var ambience: AudioStreamPlayer
 @export var intro_lines: Array[String] = [
 	"The way I came in is gone. The roof's come down.",
 	"The only way up now is the cage.",
@@ -34,6 +35,8 @@ extends CharacterBody3D
 @export var step_length: float = 1.0
 @onready var steps_player: AudioStreamPlayer = $Steps
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
+@onready var scream: AudioStreamPlayer = $Scream
+@onready var flash: ColorRect = $CanvasLayer/Flash
 @onready var run_label: Label = $CanvasLayer/RunLabel
 @onready var pause_menu: Control = $CanvasLayer/PauseMenu
 @onready var continue_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/ContinueButton
@@ -159,18 +162,40 @@ func _play_finale_cutscene() -> void:
 	turn.tween_property(head, "rotation:x", 0.0, 2.0).set_trans(Tween.TRANS_SINE)
 	await turn.finished
 
+	var ambience_db := 0.0
+	if ambience:
+		ambience_db = ambience.volume_db
+		create_tween().tween_property(ambience, "volume_db", -60.0, 1.5)
 	await get_tree().create_timer(2.0).timeout
 
+	var enemy_light := enemy_lamp.get_node("OmniLight3D") as OmniLight3D
+	var face := camera.global_position - camera.global_transform.basis.z * 0.05
+	flash.modulate.a = 0.0
+	flash.visible = true
+	var rush := create_tween().set_parallel(true)
+	rush.tween_property(enemy_lamp, "global_position", face, 0.15).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	rush.tween_property(enemy_light, "light_energy", 12.0, 0.15)
+	rush.tween_property(flash, "modulate:a", 1.0, 0.1).set_delay(0.05)
+	if scream.stream:
+		scream.play()
+	await rush.finished
+	await get_tree().create_timer(0.07).timeout
+
+	flash.visible = false
 	enemy_lamp.visible = false
+	blackout.modulate.a = 1.0
+	blackout.visible = true
+	GameState.blackout.emit()
 
 	var jolt := create_tween()
 	jolt.tween_property(camera, "rotation:x", deg_to_rad(8.0), 0.05)
 	jolt.tween_property(camera, "rotation:x", 0.0, 0.25)
 	await jolt.finished
 
-	await get_tree().create_timer(0.3).timeout
-
-	GameState.blackout.emit()
+	await get_tree().create_timer(0.8).timeout
+	blackout.visible = false
+	if ambience:
+		ambience.volume_db = ambience_db
 
 	in_cutscene = false
 	_apply_state()
