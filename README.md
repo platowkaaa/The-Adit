@@ -30,14 +30,6 @@ Once the power is on, something else knows you are there.
 2. Clone this repository.
 3. Open `project.godot` in Godot and press F5.
 
-## Status
-
-- [x] Core loop on blockout (v0.1-loop)
-- [x] Full playthrough, start to ending (v0.2-slice)
-- [x] Art pass: models and textures (v0.3-art)
-- [x] Shaders, light and sound
-- [x] Release on itch.io (v1.0-shipped)
-
 ## Tech
 
 - Godot 4.6, Compatibility renderer, GDScript
