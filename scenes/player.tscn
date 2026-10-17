@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://o021nqaayrv5" path="res://assets/sounds/steps/water_4.ogg" id="20_water4"]
 [ext_resource type="AudioStream" uid="uid://ca1kc50ac63pv" path="res://assets/sounds/steps/water_5.ogg" id="20_water5"]
 [ext_resource type="AudioStream" uid="uid://c80coksfk2lwt" path="res://assets/sounds/steps/water_6.ogg" id="20_water6"]
+[ext_resource type="AudioStream" path="res://assets/sounds/music/chase.ogg" id="21_chase"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 radius = 0.25
@@ -108,6 +109,10 @@ omni_range = 0.5
 
 [node name="Steps" type="AudioStreamPlayer" parent="." unique_id=1386420917]
 volume_db = -20.0
+
+[node name="ChaseMusic" type="AudioStreamPlayer" parent="." unique_id=1844102367]
+process_mode = 1
+stream = ExtResource("21_chase")
 
 [node name="TVLayer" type="CanvasLayer" parent="." unique_id=704006852]
 layer = 0
@@ -238,6 +243,22 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "[E] next    [Esc] close"
+
+[node name="RunLabel" type="Label" parent="CanvasLayer" unique_id=1460251877]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.75, 0.04, 0.04, 1)
+theme_override_fonts/font = ExtResource("5_smehm")
+theme_override_font_sizes/font_size = 360
+text = "RUN"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Blackout" type="ColorRect" parent="CanvasLayer" unique_id=2001715533]
 process_mode = 3

@@ -4,6 +4,7 @@ extends StaticBody3D
 @export var thought_text: String = ""
 @onready var light: OmniLight3D = $OmniLight3D
 @onready var lantern: Node3D = $lantern
+@export var sound: AudioStreamPlayer3D
 
 var is_lit: bool = false
 
@@ -21,6 +22,8 @@ func interact(_player: Node) -> void:
 	is_lit = true
 	light.visible = true
 	lantern.set_lit(true)
+	if sound:
+		sound.play()
 
 	remove_from_group("interactable")
 

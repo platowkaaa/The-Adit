@@ -28,6 +28,8 @@ extends CharacterBody3D
 @export var water_steps: Array[AudioStream] = []
 @export var step_length: float = 1.0
 @onready var steps_player: AudioStreamPlayer = $Steps
+@onready var chase_music: AudioStreamPlayer = $ChaseMusic
+@onready var run_label: Label = $CanvasLayer/RunLabel
 var in_water: bool = false
 var step_distance: float = 0.0
 
@@ -76,6 +78,7 @@ func _ready() -> void:
 	lamp_probe.radius = LAMP_RADIUS
 
 func _play_ending() -> void:
+	chase_music.stop()
 	in_cutscene = true
 	_apply_state()
 
@@ -96,6 +99,12 @@ func _play_finale_cutscene() -> void:
 	in_cutscene = true
 	_apply_state()
 	enemy_lamp.visible = true
+
+	var env := get_world_3d().environment.duplicate() as Environment
+	get_world_3d().environment = env
+	var dark := create_tween().set_parallel(true)
+	dark.tween_property(env, "fog_light_color", Color.BLACK, 2.0)
+	dark.tween_property(env, "fog_density", 0.0, 2.0)
 
 	var dir := enemy_lamp.global_position - global_position
 	var desired_y := atan2(-dir.x, -dir.z)
@@ -122,6 +131,13 @@ func _play_finale_cutscene() -> void:
 	in_cutscene = false
 	_apply_state()
 	GameState.start_escape()
+	chase_music.play()
+
+	run_label.modulate.a = 1.0
+	run_label.visible = true
+	var run_fade := create_tween()
+	run_fade.tween_interval(5.0)
+	run_fade.tween_property(run_label, "modulate:a", 0.0, 1.0)
 
 
 func _update_camera_shake(delta: float) -> void:
@@ -145,6 +161,7 @@ func _update_camera_shake(delta: float) -> void:
 
 
 func _on_time_is_up() -> void:
+	chase_music.stop()
 	ended = true
 	blackout.visible = true
 	newspaper.show_ending(false)
