@@ -40,6 +40,7 @@ extends CharacterBody3D
 @onready var quit_button: Button = $CanvasLayer/PauseMenu/paper/VBoxContainer/QuitButton
 var in_water: bool = false
 var after_note_thought: String = ""
+var was_captured: bool = false
 var step_distance: float = 0.0
 
 # --- Состояние ---
@@ -271,6 +272,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			set_reading(false)
 		return
 
+	if (event is InputEventMouseButton or event is InputEventKey) and event.pressed and not (reading or paused or ended):
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			return
+
 	if is_busy():
 		return
 
@@ -286,6 +292,9 @@ func _unhandled_input(event: InputEvent) -> void:
  
  
 func _process(delta: float) -> void:
+	if OS.has_feature("web"):
+		_check_web_mouse()
+
 	if is_busy():
 		return
 
@@ -392,3 +401,11 @@ func _update_steps(delta: float) -> void:
 	steps_player.stream = sounds.pick_random()
 	steps_player.pitch_scale = randf_range(0.9, 1.1)
 	steps_player.play()
+
+
+func _check_web_mouse() -> void:
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		was_captured = true
+	elif was_captured and not is_busy():
+		was_captured = false
+		set_paused(true)

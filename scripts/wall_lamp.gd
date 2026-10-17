@@ -10,6 +10,8 @@ var is_lit: bool = false
 
 
 func _ready() -> void:
+	if OS.has_feature("web"):
+		light.shadow_enabled = false
 	light.visible = false
 	lantern.set_lit(false)
 	GameState.blackout.connect(_on_blackout)
