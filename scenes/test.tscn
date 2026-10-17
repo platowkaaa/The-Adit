@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://btj8mlqlubnle" path="res://scenes/shelf.tscn" id="29_y81of"]
 [ext_resource type="PackedScene" uid="uid://combaudmhk7m7" path="res://scenes/box_3.tscn" id="30_gsk6d"]
 [ext_resource type="PackedScene" uid="uid://dnmkrjbty31x7" path="res://scenes/water.tscn" id="31_2cnsr"]
+[ext_resource type="AudioStream" uid="uid://bu0cb876pc6fk" path="res://assets/sounds/dungeon_ambient_1.ogg" id="32_4k8fq"]
 
 [sub_resource type="Environment" id="Environment_bl13t"]
 background_mode = 1
@@ -232,7 +233,7 @@ It came from below me. There is nothing below me. The 70 is drowned and the 80 w
 — W.H.P."]
 
 [node name="note4" parent="." unique_id=691968793 instance=ExtResource("8_jcd4p")]
-transform = Transform3D(-4.296308e-08, -0.9828807, 0.18424289, 1, -4.371139e-08, 0, 8.053515e-09, 0.18424289, 0.9828807, -16.901, 1.5879958, -24.214)
+transform = Transform3D(3.5149505e-08, 0.8041266, 0.59445804, 1, -4.3711395e-08, -5.5086666e-16, 2.5984594e-08, 0.59445804, -0.8041266, -27.926832, 1.2350566, -36.778)
 pages = ["Sheet 9. 27 March. Not for the office.
 
 I have had it out of Angove at last. Since Michaelmas: four men. Bennetts, Tregear, the Rowe boy, and one he would not name. All from the deep ends. All alone. None found.
@@ -477,6 +478,11 @@ transform = Transform3D(-0.23968582, 0, 0.9708505, 0, 1, 0, -0.9708505, 0, -0.23
 [node name="water" parent="." unique_id=1599957090 node_paths=PackedStringArray("player") instance=ExtResource("31_2cnsr")]
 transform = Transform3D(-3.742291, 0, -3.31591, 0, 4.9999995, 0, 3.31591, 0, -3.742291, -30.66182, 0.2849207, -27.383554)
 player = NodePath("../player")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1553678164]
+stream = ExtResource("32_4k8fq")
+volume_db = -5.0
+autoplay = true
 
 [editable path="level"]
 [editable path="2boxes"]

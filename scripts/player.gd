@@ -24,19 +24,27 @@ extends CharacterBody3D
 @onready var lamp: Node3D = $head/Lamp
 @export var enemy_lamp: Node3D
 
+# --- Шаги ---
+@export var rock_steps: Array[AudioStream] = []
+@export var water_steps: Array[AudioStream] = []
+@export var step_length: float = 1.0  # через сколько метров звучит шаг
+@onready var steps_player: AudioStreamPlayer = $Steps
+var in_water: bool = false  # ставит вода (water.gd)
+var step_distance: float = 0.0
+
 # --- Состояние ---
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var inventory: Array[String] = []
  
 var reading: bool = false
 var paused: bool = false
-var ended: bool = false # Игра кончилась — побегом или смертью. Выхода нет, только перезапуск.
+var ended: bool = false 
 var in_cutscene: bool = false
 
 # --- Лампа не лезет в стены ---
-const LAMP_TUCKED := Vector3(0.2, -0.75, -0.25)  # лампа опущена к поясу, ниже кадра
-const LAMP_REACH: float = 1.4  # луч идёт через лампу и на 40% дальше
-const LAMP_RADIUS: float = 0.2  # шар-щуп размером с лампу
+const LAMP_TUCKED := Vector3(0.2, -0.75, -0.25)  
+const LAMP_REACH: float = 1.4  
+const LAMP_RADIUS: float = 0.2  
 var lamp_base_pos: Vector3
 var lamp_probe := SphereShape3D.new()
  
@@ -110,7 +118,6 @@ func _play_finale_cutscene() -> void:
 
 	await get_tree().create_timer(0.3).timeout
 
-	# Лампы гасит не рубильник, а то, что пришло.
 	GameState.blackout.emit()
 
 	in_cutscene = false
@@ -293,11 +300,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0.0, speed * 10.0 * delta)
  
 	move_and_slide()
+	_update_steps(delta)
 	_update_lamp_pushback(delta)
 
 
-# От глаз к лампе летит невидимый шар размером с лампу. Задел стену —
-# лампа плавно опускается к поясу. Свет дочерний к Lamp и уходит вместе с ней.
+
 func _update_lamp_pushback(delta: float) -> void:
 	var from := head.global_position
 	var center := lamp_base_pos + Vector3(0.0, 0.08, 0.0)  # середина лампы, а не пламя
@@ -312,3 +319,22 @@ func _update_lamp_pushback(delta: float) -> void:
 
 	var target := lamp_base_pos.lerp(LAMP_TUCKED, 1.0 - free_part)
 	lamp.position = lamp.position.lerp(target, 1.0 - exp(-delta * 12.0))
+
+
+func _update_steps(delta: float) -> void:
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	if not is_on_floor() or horizontal_speed < 0.1:
+		step_distance = step_length  
+		return
+
+	step_distance += horizontal_speed * delta
+	if step_distance < step_length:
+		return
+	step_distance = 0.0
+
+	var sounds := water_steps if in_water else rock_steps
+	if sounds.is_empty():
+		return
+	steps_player.stream = sounds.pick_random()
+	steps_player.pitch_scale = randf_range(0.9, 1.1)
+	steps_player.play()

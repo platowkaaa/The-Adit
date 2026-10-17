@@ -13,3 +13,9 @@
 
 - Mine (3D models pack) — Elbolilloduro — https://elbolilloduro.itch.io/mine — CC0 1.0. Textures in the pack come from texturer.com and textures.com.
 - Skeleton key ("clé2") by quantumRyan — TurboSquid, free, royalty-free custom license https://www.turbosquid.com/3d-models/3d-skeleton-key-model/306184
+
+## Sounds
+
+- Loopable Dungeon Ambience — JaggedStone, OpenGameArt — https://opengameart.org/content/loopable-dungeon-ambience — CC0
+- Footsteps Rock - Wet boots, walk & run — Vrymaa, Freesound — https://freesound.org/people/Vrymaa/sounds/770085/ — CC0
+- Askeleet vedessä / Footsteps, wading, walking in the water — YleArkisto, Freesound — https://freesound.org/people/YleArkisto/sounds/368673/ — CC BY 4.0. Cut into single steps.

@@ -11,12 +11,24 @@
 [ext_resource type="FontFile" uid="uid://bfmh74gtgqk7r" path="res://assets/fonts/OldStandardTT-Bold.ttf" id="7_ur7pv"]
 [ext_resource type="FontFile" uid="uid://chwyku3xivoe0" path="res://assets/fonts/OldStandardTT-Regular.ttf" id="8_y4r1p"]
 [ext_resource type="Shader" uid="uid://bu0lp0mkwpr3m" path="res://shaders/old_tv.gdshader" id="9_oldtv"]
+[ext_resource type="AudioStream" uid="uid://bryeq51faqqcw" path="res://assets/sounds/steps/rock_1.ogg" id="20_rock1"]
+[ext_resource type="AudioStream" uid="uid://i2yroxe248jx" path="res://assets/sounds/steps/rock_2.ogg" id="20_rock2"]
+[ext_resource type="AudioStream" uid="uid://c5lyddol6fmu7" path="res://assets/sounds/steps/rock_3.ogg" id="20_rock3"]
+[ext_resource type="AudioStream" uid="uid://8lo541d0t2ld" path="res://assets/sounds/steps/rock_4.ogg" id="20_rock4"]
+[ext_resource type="AudioStream" uid="uid://cxsb7reaxnfc3" path="res://assets/sounds/steps/rock_5.ogg" id="20_rock5"]
+[ext_resource type="AudioStream" uid="uid://57ic8xagajh" path="res://assets/sounds/steps/rock_6.ogg" id="20_rock6"]
+[ext_resource type="AudioStream" uid="uid://cp6k3hx3snixi" path="res://assets/sounds/steps/water_1.ogg" id="20_water1"]
+[ext_resource type="AudioStream" uid="uid://g7w05q8dtd0p" path="res://assets/sounds/steps/water_2.ogg" id="20_water2"]
+[ext_resource type="AudioStream" uid="uid://cbijt8diana21" path="res://assets/sounds/steps/water_3.ogg" id="20_water3"]
+[ext_resource type="AudioStream" uid="uid://o021nqaayrv5" path="res://assets/sounds/steps/water_4.ogg" id="20_water4"]
+[ext_resource type="AudioStream" uid="uid://ca1kc50ac63pv" path="res://assets/sounds/steps/water_5.ogg" id="20_water5"]
+[ext_resource type="AudioStream" uid="uid://c80coksfk2lwt" path="res://assets/sounds/steps/water_6.ogg" id="20_water6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 radius = 0.25
 height = 1.8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2wvv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ni07"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
@@ -43,6 +55,8 @@ shader_parameter/glitch_length = 0.2
 
 [node name="player" type="CharacterBody3D" unique_id=2098263217]
 script = ExtResource("1_3vyb7")
+rock_steps = Array[AudioStream]([ExtResource("20_rock1"), ExtResource("20_rock2"), ExtResource("20_rock3"), ExtResource("20_rock4"), ExtResource("20_rock5"), ExtResource("20_rock6")])
+water_steps = Array[AudioStream]([ExtResource("20_water1"), ExtResource("20_water2"), ExtResource("20_water3"), ExtResource("20_water4"), ExtResource("20_water5"), ExtResource("20_water6")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1744151305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -78,7 +92,7 @@ layers = 2
 
 [node name="glass" parent="head/Lamp/lantern/tank" index="0" unique_id=1206529095]
 layers = 2
-surface_material_override/0 = SubResource("StandardMaterial3D_d2wvv")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ni07")
 
 [node name="guard" parent="head/Lamp/lantern/tank" index="1" unique_id=418310368]
 layers = 2
@@ -91,6 +105,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31116033, -0.07961333, -0.3
 light_energy = 0.1
 light_cull_mask = 4294966274
 omni_range = 0.5
+
+[node name="Steps" type="AudioStreamPlayer" parent="." unique_id=1386420917]
+volume_db = -20.0
 
 [node name="TVLayer" type="CanvasLayer" parent="." unique_id=704006852]
 layer = 0
