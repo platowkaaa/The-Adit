@@ -3,6 +3,8 @@
 A short first-person horror game set in an abandoned Cornish tin mine, 1897.
 Made solo in Godot 4 as a portfolio project.
 
+**Play it on itch.io:** https://platowkaaa.itch.io/the-adit (Windows or in the browser)
+
 ## About
 
 Wheal Hendra, March 1897. The mine surveyor W. H. Pascoe went down to finish
@@ -32,9 +34,9 @@ Once the power is on, something else knows you are there.
 
 - [x] Core loop on blockout (v0.1-loop)
 - [x] Full playthrough, start to ending (v0.2-slice)
-- [ ] Art pass: models and textures (in progress)
-- [ ] Shaders, light and sound
-- [ ] Release on itch.io
+- [x] Art pass: models and textures (v0.3-art)
+- [x] Shaders, light and sound
+- [x] Release on itch.io (v1.0-shipped)
 
 ## Tech
 
